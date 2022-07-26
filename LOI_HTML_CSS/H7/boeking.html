@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Accomodatie boeken</h1>
+    <p>Op deze pagina kunt u een kamer in ons hotel boeken en nog een aantal foto's en een filmpje bekijken.</p>
+    <form action="https://jkorpela.fi/cgi-bin/echo.cgi" method="post" id="inReserveer">
+        
+        <h2>Adresgegevens</h2>
+        <p>
+            <label for="naam">Naam: <em>(Jan Pieter)</em></label>
+            <input type="text" name="naam" id="naam" required placeholder="*">
+        </p>
+        <p>
+            <label for="adres">Adres: <em>(Michielruiterstraat 123)</em></label>
+            <input type="text" name="adres" id="adres" required placeholder="*">
+        </p>
+        <p>
+            <label for="postcode">Postcode: <em>(1234 AB)</em></label>
+            <input type="text" pattern="[0-9]{4}\s[A-Z]{2}" name="postcode" id="postcode" required placeholder="*" title="Een postcode heeft 4 cijfers, 1 spatie en 2 letters">    
+        </p>
+        <p>
+            <label for="woonplaats">Woonplaats: <em>(Breda)</em></label>
+            <input type="text" name="woonplaats" id="woonplaats" required placeholder="*">
+        </p>
+        <p>
+            <label for="telefoon">Telefoon nummer: <em>(0612345678)</em></label>
+            <input type="tel" name="telefoon" id="telefoon" required placeholder="*" pattern="[0-9]{10}" title="Een telefoonnummer bestaat uit 10 cijfers (zie voorbeeld)">
+        </p>
+       <p>
+            <label for="mail">Email: <em>(test@mail.com)</em></label>
+            <input type="email" name="mail" id="mail" required placeholder="*">  
+       </p>
+    </form>
+    <h2>Reservering</h2>
+    <p>
+         <label for="personen">Aantal personen:</label>
+         <input type="number" name="personen" id="personen" value="1" min="1" max="10" required form="inReserveer">
+    </p>
+    <p>
+         <label for="aankomst">Aankomstdatum:</label>
+         <input type="date" name="aankomst" id="aankomst" required form="inReserveer">
+    </p>
+    <p>
+         <label for="duur">Verblijfsduur:</label>
+         <input type="range" name="duur" id="duur" min="2" max="20" step="2" value="6" oninput="duurGetal.value=duur.value" form="inReserveer">
+         Aantal dagen:
+         <output id="duurGetal" name="duurGetal" for="duur">6</output>
+    </p>
+    <p>
+         <label for="verzorging">Verzorging:</label>
+         <select id="verzorging" name="verzorging" form="inReserveer">
+             <option value="logies">logies</option>
+             <option value="logies met ontbijt">logies met ontbijt</option>
+             <option value="halfpension">halfpension</option>
+             <option value="volpension">volpension</option>
+         </select>
+    </p>
+    <p>
+         Annuleringsverzekering:
+         <label for="ja"><input type="radio" name="annulering" id="ja" value="ja" checked form="inReserveer">Ja</label>
+         <label for="nee"><input type="radio" name="annulering" id="nee" value="nee" checked form="inReserveer">Nee</label>
+    </p>
+    <p>
+         <label for="opmerking">Opmerkingen:</label>
+         <textarea name="opmerking" id="opmerking" cols="30" rows="10" form="inReserveer"></textarea>
+    </p>
+    <p>
+         <input type="submit" value="Reserveer" form="inReserveer"> 
+    </p>
+    <h2 id="galerij">Foto's</h2>
+    <figure>
+        <img src="ïmages/Enterance.jpg" alt="Ingang van ons grandiose hotel" width="480">
+        <figcaption>Onze grand hall</figcaption>
+    </figure>
+    <figure>
+        <img src="ïmages/Checkin.jpg" alt="Onze check-in balie" width="480">
+        <figcaption>Check-in balie</figcaption>
+    </figure>
+    <figure>
+        <img src="ïmages/Zwembad.jpg" alt="Prachtig zwembad op dak met uitzicht op het landschap" width="480">
+        <figcaption>Uitzicht vanuit het dak zwembad</figcaption>
+    </figure>
+    <figure>
+        <img src="ïmages/EnterRoom.jpg" alt="Eerste indruk van uw binnenkomst in uw kamer" width="480">
+        <figcaption>Eerste indruk op uw kamer bij binnenkomst</figcaption>
+    </figure>
+    <h2>Filmpje</h2>
+    <p>Een kort inspiratiefilmpje van de mooie omgeving</p>
+    <video src="videos/VoorbeeldVideo.mp4" controls></video>
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+body {
+    background-color: lightyellow;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 80%;
+    margin-left: 10%;
+}
+h1, h2 {
+    color: rgb(88, 59, 20);
+    text-shadow: 3px 3px 0px rgba(218, 165, 32, 0.418);
+    font: 30px Calibri;
+}
+
+p {
+    letter-spacing: 0.1em;
+    text-align: justify;
+}
+
+p::first-letter {
+    font-size: 105%;
+}
+
+#titleCaption {
+    font-style: italic;
+}
