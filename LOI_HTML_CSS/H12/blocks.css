@@ -1,0 +1,24 @@
+.block {
+    width: 200px;
+    height: 200px;
+}
+
+.first {
+    background-color: blue;
+    display: inline-block;
+}
+
+.first:last-of-type {
+    display: block;
+    background-color: silver;
+}
+
+.two {
+    background-color: blue;
+    display: inline-block;
+
+}
+
+.two:last-of-type {
+    background-color: silver;
+}
