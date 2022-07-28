@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -198,4 +199,206 @@
             </tr>
     </table>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widthead=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    table {
+        border-collapse: separate; /* voegt de randen samen tot 1 rand */
+        border: 1px solid black;
+        inline-size: auto;
+    }
+
+    colgroup > col {
+        background: #4d36b8;
+    }
+
+    colgroup > col:last-child {
+        background: #d83232;
+    }
+    /*hier staat: selecteer elk element td of th dat niet leeg is*/
+        :is(td, th) {
+            border-collapse: separate;
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <h1>Tabelreeks</h1>
+    <h2>Tabel &eacute;&eacute;n</h2>
+    <table>
+        <thead>
+            <th scope="col">Vakgebied</th>
+            <th scope="col">Cursus</th>
+        </thead>
+        <tr>
+            <th rowspan="6" scope="row">Informatica, PC en internet</th>
+            <td>Excel</td>
+        </tr>
+        <tr> <td>Office</td> </tr>
+        <tr> <td>Google AdWords</td> </tr>
+        <tr> <td>Webanalyse</td> </tr>
+        <tr> <td>PHP en MySQL</td> </tr>
+        <tr> <td>Visual Basic</td> </tr>
+        <tr>
+            <th rowspan="3" scope="row">Hobby</th>
+            <td>Filosofie</td>
+        </tr>
+        <tr> <td>Voetverzorging</td> </tr>
+        <tr> <td>Beleggen</td> </tr>
+        <tr>
+            <th rowspan="2" scope="row">Talen</th>
+            <td>Spaans</td>
+        </tr>
+        <tr> <td>Engels</td> </tr>
+        <tr>
+            <th rowspan="5" scope="row">Onderwijs</th>
+            <td>BOA</td>
+        </tr>
+        <tr> <td>Pedagogiek</td> </tr>
+        <tr> <td>Pedagogiek (spoed)</td> </tr>
+        <tr> <td>Leren studeren</td> </tr>
+        <tr> <td>Spelbegeleiding</td> </tr>
+    </table>
+    <h2>Tabel twee</h2>
+    <table>
+        <caption>Tabel 1: Verkopen per filiaal</caption>
+        <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th colspan="3" scope="col">Filiaal</th>
+                <th></th>
+            </tr>
+        </thead>
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Jaar</th>
+                <th scope="col">Verkoper</th>
+                <td>Delft</td>
+                <td>Rotterdam</td>
+                <td>Den Haag</td>
+                <th scope="col">Totaal</th>
+            </tr>
+            <tr>
+                <td rowspan="6">Laptop</td>
+                <td rowspan="2">2014</td>
+                <td>Jansen</td>
+                <td>300</td>
+                <td>20</td>
+                <td>512</td>
+                <td>832</td>
+            </tr>
+            <tr>
+                <td>van Veen</td>
+                <td>33</td>
+                <td>476</td>
+                <td>120</td>
+                <td>629</td>
+            </tr>
+            <tr>
+                <th colspan="2">Totaal 2014</th>
+                <td>333</td>
+                <td>496</td>
+                <td>632</td>
+                <td>1461</td>
+            </tr>
+            <tr>
+                <td rowspan="2">2015</td>
+                <td>Jansen</td>
+                <td>300</td>
+                <td>20</td>
+                <td>512</td>
+                <td>832</td>
+            </tr>
+            <tr>
+                <td>van Veen</td>
+                <td>33</td>
+                <td>476</td>
+                <td>120</td>
+                <td>629</td>
+            </tr>
+            <tr>
+                <th colspan="2">Totaal 2015</th>
+                <td>333</td>
+                <td>496</td>
+                <td>632</td>
+                <td>1461</td>
+            </tr>
+            <tr>
+                <th colspan="3">Laptop totaal</th>
+                <td>666</td>
+                <td>992</td>
+                <td>1264</td>
+                <td>2920</td>
+            </tr>
+            <!-- Tablet data -->
+            <tr>
+                <td rowspan="6">Tablet</td>
+                <td rowspan="2">2014</td>
+                <td>Jansen</td>
+                <td>300</td>
+                <td>20</td>
+                <td>512</td>
+                <td>832</td>
+            </tr>
+            <tr>
+                <td>van Veen</td>
+                <td>33</td>
+                <td>476</td>
+                <td>120</td>
+                <td>629</td>
+            </tr>
+            <tr>
+                <th colspan="2">Totaal 2014</th>
+                <td>333</td>
+                <td>496</td>
+                <td>632</td>
+                <td>1461</td>
+            </tr>
+            <tr>
+                <td rowspan="2">2015</td>
+                <td>Jansen</td>
+                <td>300</td>
+                <td>20</td>
+                <td>512</td>
+                <td>832</td>
+            </tr>
+            <tr>
+                <td>van Veen</td>
+                <td>33</td>
+                <td>476</td>
+                <td>120</td>
+                <td>629</td>
+            </tr>
+            <tr>
+                <th colspan="2">Totaal 2015</th>
+                <td>333</td>
+                <td>496</td>
+                <td>632</td>
+                <td>1461</td>
+            </tr>
+            <tr>
+                <th colspan="3">Tablet totaal</th>
+                <td>666</td>
+                <td>992</td>
+                <td>1264</td>
+                <td>2920</td>
+            </tr>
+            <tr>
+                <th colspan="3">Totaal</th>
+                <td>~1332</td>
+                <td>~2000</td>
+                <td>~2600</td>
+                <td>~6000</td>
+            </tr>
+    </table>
+</body>
+>>>>>>> 8ffe889af0d0f575efc34d1b3828b3e4b96081ca
 </html>

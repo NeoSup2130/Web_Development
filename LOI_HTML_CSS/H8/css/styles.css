@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 body {
     background-color: lightyellow;
@@ -6,3 +7,13 @@ h1 {
     color: blue;
     font: 30px Calibri;
 }
+=======
+
+body {
+    background-color: lightyellow;
+}
+h1 {
+    color: blue;
+    font: 30px Calibri;
+}
+>>>>>>> 8ffe889af0d0f575efc34d1b3828b3e4b96081ca
