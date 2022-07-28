@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font: 20px/1.5 Roboto, sans-serif;
 }
@@ -47,4 +48,55 @@ nav li, nav label {
     [for="menu-toggle"] {
         display: none;
     }
+=======
+body {
+    font: 20px/1.5 Roboto, sans-serif;
+}
+
+nav ul {
+    /* display: none; */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: max-content;
+    transform: translateX(-150px);
+    transition: transform 250ms ease-out;
+}
+
+input:checked ~ ul {
+    /* display: initial; */
+    transform: translateX(0);
+    transition: transform 200ms ease-in;
+}
+
+nav :any-link, nav a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+nav li, nav label {
+    border: 2px solid wheat;
+    background-color: wheat;
+    border-radius: 6px;
+    margin: 0.5rem;
+    /* padding: 0; */
+    /* height: fit-content; */
+}
+
+@media only screen and (min-width: 768px) {
+    nav ul, input:checked ~ ul {
+        display: flex;
+        transform: translateX(0);
+    }
+    /* nav li {
+        padding: 1rem;
+    } */
+    [for="menu-toggle"] {
+        display: none;
+    }
+>>>>>>> 8ffe889af0d0f575efc34d1b3828b3e4b96081ca
 }
