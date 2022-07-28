@@ -1,0 +1,28 @@
+.container{
+    width: 600px;
+    display: flow-root;
+    box-sizing: content-box;
+    border: 0.5em solid rgba(10, 110, 128, 0.452);
+    background-color: red;
+}
+
+div > div{
+    border: 1em silver ridge;
+    float: left;
+    text-align: center;
+}
+
+.col2 {
+    box-sizing: border-box;
+    width: 50%;
+}
+
+.col3 {
+    box-sizing: border-box;
+    width: 33.333%;
+}
+
+.col4 {
+    box-sizing: border-box;
+    width: 25%;
+}
