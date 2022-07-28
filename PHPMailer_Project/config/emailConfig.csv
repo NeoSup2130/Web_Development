@@ -1,7 +1,0 @@
-"SMPT_HOST",smtp.gmail.com
-"FromUser",no-reply@laika.com
-"Reply_To",laikaphpmailer@gmail.com
-"User",laikaphpmailer@gmail.com
-"Pass",Paulo2130
-"Secure",tls
-"Port",587
