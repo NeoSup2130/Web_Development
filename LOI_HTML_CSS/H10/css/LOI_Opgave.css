@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 html {
     box-sizing: border-box;
 }
@@ -50,56 +49,3 @@ article *:nth-child(6) {
     grid-area: f;
     background-color: green;
 }
-=======
-html {
-    box-sizing: border-box;
-}
-  
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-h1 {
-    font-size: 50px;
-}
-
-.grid {
-    width: 780px;
-    height: 360px;
-    background-color: wheat;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 5px;
-    padding: 10px;
-    grid-template-areas: 
-    "a a b"
-    "c d d"
-    "c e f";
-}
-
-article *:nth-child(1) {
-    background-color: antiquewhite;
-    grid-area: a;
-}
-article *:nth-child(2) {
-    grid-area: b;
-    background-color: pink;
-}
-article *:nth-child(3) {
-    grid-area: c;
-    background-color: cyan;
-}
-article *:nth-child(4) {
-    grid-area: d;
-    background-color: blue;
-}
-article *:nth-child(5) {
-    grid-area: e;
-    background-color: orange;
-}
-article *:nth-child(6) {
-    grid-area: f;
-    background-color: green;
-}
->>>>>>> 8ffe889af0d0f575efc34d1b3828b3e4b96081ca
