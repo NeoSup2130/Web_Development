@@ -19,6 +19,7 @@ main {
 }
 /* End base style rules */
 
+/* Navigation menu style rules */
 nav ul {
     list-style: none;
 
@@ -55,4 +56,14 @@ nav a {
 nav a:hover {
     background-color: rgb(39, 80, 66);
     color: white;
+}
+/* End navigation style */
+
+h1, h2 {
+    text-shadow: 3px 3px 4px gray;
+}
+
+/* Adds cloud symbol at the start of a paragraph */
+p::before {
+    content: "\2601  ";
 }
