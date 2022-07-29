@@ -64,6 +64,29 @@ h1, h2 {
 }
 
 /* Adds cloud symbol at the start of a paragraph */
-p::before {
+#Versteend p::before {
     content: "\2601  ";
 }
+
+/* Gradient seperator line */
+hr {
+    background-image: linear-gradient(to right, black, white, black );
+    height: 1px;
+    border: 0;
+}
+
+@media screen and (min-width: 768px){
+    #Versteend .column {
+        column-count: 3;
+        column-rule-style: solid;
+        column-rule-color: red;
+        column-rule-width: 1px;
+    }
+    #Versteend p{
+        margin: 0;
+    }
+    #Versteend p + p {
+        margin-top: 1em;
+    }
+}
+
