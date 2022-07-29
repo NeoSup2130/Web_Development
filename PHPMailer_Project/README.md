@@ -1,0 +1,2 @@
+Dit project was bedoeld om mijn schoonvader te helpen met zijn website. Ingevulde formulieren werden gestuurd naar cliënten. Daarnaast werd er een melding naar zijn email gestuurd. Hiervoor moest ik een PHP script schrijven die PHPMailer gebruikt. Voor dit project gebruikte ik usbwebserver om mijn PHP code te testen.
+In de folder "config" staan twee csv bestanden die gelezen worden om de emails vorm te geven en een SMTP connectie op te zetten.
