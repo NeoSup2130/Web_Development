@@ -1,0 +1,61 @@
+body {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.wrapper-calc {
+    border: 2px dotted black;
+    height: 50vh;
+}
+
+.wrapper-calc > p {
+    height: calc( 50vh / 3 - (1em * 4) / 3);
+    border: 2px solid black;
+    padding: 1em;
+    margin: 1em;
+}
+
+:root {
+    --groen: rgb(31, 206, 45);
+    --chemischGroen: rgb(10, 255, 10);
+}
+
+.wrapper {
+    --blauw: rgb(0, 10, 255);
+    --rood: rgb(255, 10, 0);
+    --paars: rgb(155, 10, 155);
+    --geel: rgb(155, 155, 10);
+    --groen: rgb(101, 122, 88);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: space-between;
+}
+.wrapper {
+    border: 2px dotted black;
+}
+
+.wrapper > p {
+    border: 2px solid black;
+    max-width: 45ch;
+    padding: 2ch;
+}
+
+.wrapper p:nth-child(1){
+    background-color: var(--blauw); color: var(--rood);
+}
+.wrapper p:nth-child(2){
+    background-color: var(--rood); color: var(--geel);
+}
+.wrapper p:nth-child(3){
+    background-color: var(--geel); color: var(--blauw);
+}
+.wrapper p:nth-child(4){
+    background-color: var(--paars); color: var(--geel);
+    border: 8px solid var(--chemischGroen);
+}
