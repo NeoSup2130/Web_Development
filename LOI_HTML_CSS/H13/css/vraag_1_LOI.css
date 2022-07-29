@@ -1,0 +1,21 @@
+body {
+    box-sizing: border-box;
+
+    background-color: hsl(180deg, 100%, 50%);
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+header {
+    --outlineText: 3px 3px 2px rgb(43, 66, 33);
+}
+
+article p {
+    font-size: large;
+
+    text-shadow: var(--outlineText);
+    color: white;
+}
+
