@@ -1,0 +1,51 @@
+.block {
+    width: 200px;
+    height: 200px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color_anim {
+    --textSize: 10px;
+    font-size: var(--textSize);
+
+    border-radius: 0%;
+
+    animation-name: colorCircle, toCircleBop;
+    animation-duration: 5s, 5s;
+    animation-timing-function: steps(9, end), linear;
+    animation-delay: initial;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: initial;
+    animation-play-state: initial;
+}
+
+@keyframes colorCircle {
+    0% {background-color: hsl(0deg, 100%, 50%); --textSize: calc(10px + 40px * 0.0)}
+    11% {background-color: hsl(40deg, 100%, 50%); --textSize: calc(10px + 40px * 0.11)}
+    22% {background-color: hsl(80deg, 100%, 50%); --textSize: calc(10px + 40px * 0.22)} 
+    33% {background-color: hsl(120deg, 100%, 50%); --textSize: calc(10px + 40px * 0.33)}
+    44% {background-color: hsl(160deg, 100%, 50%); --textSize: calc(10px + 40px * 0.44)}
+    55% {background-color: hsl(200deg, 100%, 50%); --textSize: calc(10px + 40px * 0.55)}
+    66% {background-color: hsl(240deg, 100%, 50%); --textSize: calc(10px + 40px * 0.66)}
+    77% {background-color: hsl(280deg, 100%, 50%); --textSize: calc(10px + 40px * 0.77)}
+    88% {background-color: hsl(320deg, 100%, 50%); --textSize: calc(10px + 40px * 0.88)}
+    100% {background-color: hsl(360deg, 100%, 50%);--textSize: calc(10px + 40px * 1.0)} 
+}
+
+@keyframes toCircleBop {
+    50% {
+        border-radius: 50%;
+        transform: translateY(200px);
+    }
+
+    100% {
+        border-radius: 0%;
+        transform: translateY(0px);
+    }
+}
