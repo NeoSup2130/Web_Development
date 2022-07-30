@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@200&family=Roboto+Condensed&display=swap');
+
+/* Imported font styles
+
+font-family: 'Great Vibes', cursive; --> Letter blocks
+font-family: 'Poppins', sans-serif; --> Menu navigation
+font-family: 'Roboto Condensed', sans-serif; --> Other text
+*/
+
 /* Base style rules */
 :root {
     --whiteSpace: 1px;
@@ -16,6 +25,8 @@ body {
 body {
     margin: var(--pageMargin);
     background-color: rgb(220, 220, 220);
+
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 main {
@@ -36,7 +47,7 @@ nav ul {
     margin: 0;
     padding: 0;
 
-    background-color: aquamarine;
+    background-color: rgb(255, 211, 129);
 }
 
 nav li:nth-child(odd) {
@@ -46,6 +57,9 @@ nav li:nth-child(odd) {
 }
 
 nav a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+
     display: block;
 
     padding: 1ch;
@@ -60,7 +74,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: rgb(39, 80, 66);
+    background-color: rgb(105, 77, 25);
     color: white;
 }
 /* End navigation style */
@@ -118,6 +132,7 @@ hr {
 }
 
 .letterBlok p {
+    font-family: 'Great Vibes', cursive;
     text-align: center;
 
     background-color: rgb(193, 193, 193);
