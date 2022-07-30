@@ -168,7 +168,7 @@ hr {
     }
 
     p {
-        font-size: 20pxs;
+        font-size: 20px;
     }
 
     h1, h2 { 
@@ -194,11 +194,35 @@ hr {
         width: calc(33.333% - var(--whiteSpace) * 2 - 1ch * 2);
         height: 30vw;
     }
+
+    nav a {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 24px;
+    }
+
+    h1, h2 { 
+        font-size: 42px;
+    }
 }
 
-@media screen and (min-width: 1044px) {
+@media screen and (min-width: 1440px) {
     :root {
         --pagePadding: 6rem;
+    }
+
+    nav a {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 30px;
+    }
+
+    h1, h2 { 
+        font-size: 42px;
     }
 }
 
