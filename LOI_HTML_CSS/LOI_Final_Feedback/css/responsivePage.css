@@ -1,4 +1,10 @@
 /* Base style rules */
+:root {
+    --whiteSpace: 1px;
+    --pageMargin: 0.5rem;
+    --pagePadding: 0.5rem;
+}
+
 body {
     box-sizing: border-box;
 }
@@ -8,14 +14,14 @@ body {
 }
 
 body {
-    margin: 0.5rem;
+    margin: var(--pageMargin);
     background-color: rgb(220, 220, 220);
 }
 
 main {
     background-color: white;
     border: 1px solid silver;
-    padding: 0.5rem;
+    padding: var(--pageMargin) var(--pagePadding);
 }
 /* End base style rules */
 
@@ -71,13 +77,57 @@ h1, h2 {
 /* Gradient seperator line */
 hr {
     background-image: linear-gradient(to right, black, white, black );
-    height: 1px;
+    height: 3px;
     border: 0;
 }
 
 #Natuurfotos img {
     width: 100%;
     height: 100%;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letterFlex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+    align-content: center;
+}
+
+.letterBlok {
+    width: calc(50vw - 0.5rem * 3);
+    height: 43vw;
+
+    margin: 1ch;
+
+    border: 1px solid black;
+    border-radius: 20%;
+    background-color: rgb(0, 157, 224);
+}
+
+.letterBlok p {
+    text-align: center;
+
+    background-color: rgb(193, 193, 193);
+    border-radius: 50%;
+
+    color: rgb(0, 157, 224);
+
+    width: 80%;
+    height: 80%;
+    font-size: calc(24px + 4vw);
 }
 
 @media screen and (min-width: 768px){
@@ -95,13 +145,45 @@ hr {
     }
 
     #Natuurfotos img {
-        width: calc(50% - 2px);
+        width: calc(50% - var(--whiteSpace) * 2);
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 20pxs;
+    }
+
+    h1, h2 { 
+        font-size: 32px;
     }
 }
 
 @media screen and (min-width: 1024px) {
     #Natuurfotos img {
-        width: calc(25% - 3px);
+        width: calc(25% - var(--whiteSpace) * 3);
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .letterFlex {
+        width: 100%; 
+        flex-direction: row;
+    }
+
+    .letterBlok {
+        width: calc(33.333% - var(--whiteSpace) * 2 - 1ch * 2);
+        height: 30vw;
+    }
+}
+
+@media screen and (min-width: 1044px) {
+    :root {
+        --pagePadding: 6rem;
     }
 }
 
