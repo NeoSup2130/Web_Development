@@ -75,6 +75,11 @@ hr {
     border: 0;
 }
 
+#Natuurfotos img {
+    width: 100%;
+    height: 100%;
+}
+
 @media screen and (min-width: 768px){
     #Versteend .column {
         column-count: 3;
@@ -87,6 +92,16 @@ hr {
     }
     #Versteend p + p {
         margin-top: 1em;
+    }
+
+    #Natuurfotos img {
+        width: calc(50% - 2px);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #Natuurfotos img {
+        width: calc(25% - 3px);
     }
 }
 
