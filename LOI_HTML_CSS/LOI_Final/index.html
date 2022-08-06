@@ -9,10 +9,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slava Portfolio</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navMenu.css">
+    <link rel="stylesheet" href="css/home.css">
+    <title>Slava Takrovskij Portfolio</title>
 </head>
 <body>
-    <h1 id="title">Projects I worked on</h1>
-    <p>test</p>
+    <main class="grid">
+        <nav class="grid-Menu">
+            <a href="#"><img src="images/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="#" class="nav-item">Home</a></li>
+                <li><a href="#" class="nav-item">Web dev</a></li>
+                <li><a href="#" class="nav-item">Game dev</a></li>
+                <li class="dropdown-menu">
+                    <input type="checkbox" id="socials">
+                    <label for="socials" class="nav-item">Social media</label>
+                    <ul>
+                        <li><a href="#" class="nav-item">Linkedin</a></li>
+                        <li><a href="#" class="nav-item">Twitter</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="nav-item">Contact</a></li>
+            </ul>
+        </nav>
+        <picture class="grid-Wide wide-Photo">
+
+        </picture>
+        <section class="highlight grid-Content">
+            <section class="flex wrap" id="content">
+                <div class="flex-item">
+                    <h2>Content</h2>
+                    <p>Lorem ipsum dolor sit.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Content</h2>
+                    <p>Lorem ipsum dolor sit.</p>
+                </div>
+            </section>
+            <section id="pictures-videos">
+                <h2>Foto's, videos etc.</h2>
+                <div class="flex wrap">
+                <img src="" alt="one" class="template-200px flex-item">
+                <img src="" alt="two" class="template-200px flex-item">
+                <img src="" alt="three" class="template-200px flex-item">
+                <img src="" alt="four" class="template-200px flex-item">
+                <img src="" alt="five" class="template-200px flex-item">
+                </div>
+            </section> 
+            <section id="cards">
+                <img src="" alt="five" class="template-200px flex-item">
+            </section>
+        </section>
+        <footer class="grid-Footer">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, eaque.</p>
+        </footer>
+    </main>
 </body>
 </html>

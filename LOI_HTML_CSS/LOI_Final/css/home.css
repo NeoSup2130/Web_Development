@@ -1,0 +1,86 @@
+.grid {
+    --borderVar: 3px solid black;
+}
+
+.grid {
+    width: 100%;
+    grid-template-columns: 3fr;
+    grid-template-rows: 0.5fr 256px 0.5fr 0.5fr 2fr 0.5fr;
+}
+
+.grid {
+    grid-template-areas:    "Menu" 
+    "Wide-Photo"
+    "Content"
+    "Content"
+    "Content"
+    "Footer";
+}
+
+.grid-Content, .grid-Footer {
+    padding: 0 var(--gridPadding);
+}
+
+@media screen and (min-width: 768px) {
+    .grid-Menu {
+        padding: 0 var(--gridPadding);
+    }
+
+    .grid {
+        grid-template-areas:    ". Menu ." 
+        "Wide-Photo Wide-Photo Wide-Photo"
+        "Content"
+        "Content"
+        "Content"
+        "Footer Footer Footer";
+    }
+}
+
+.grid-Menu {
+    grid-area: Menu;
+}
+
+.grid-Wide {
+    grid-area: Wide-Photo;
+    border-bottom: var(--borderVar);
+    border-top: var(--borderVar);
+}
+
+.grid-Wide {
+    background-color: wheat;
+}
+
+.grid-Content {
+    grid-area: Content;
+}
+
+.grid-Content {
+    background-color: var(--sndColor);
+}
+
+.grid-Footer {
+    grid-area: Footer;
+    border-top: var(--borderVar);
+}
+
+#content, #pictures-videos {
+    border-bottom: var(--borderVar);
+}
+
+#content > .flex-item {
+    width: 50%;
+}
+
+#pictures-videos > .flex {
+    justify-content: space-between;
+}
+
+#pictures-videos .flex-item {
+    margin-bottom: 1rem;
+}
+
+.template-200px {
+    width: 200px;
+    height: 128px;
+    background-color: red;
+}

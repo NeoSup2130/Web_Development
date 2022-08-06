@@ -1,0 +1,45 @@
+body {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    --backDropColor: rgb(185, 185, 185);
+    --frstColor: white;
+    --sndColor: rgb(238, 238, 238);
+    --navHoverColor: rgb(158, 158, 158);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--backDropColor);
+}
+
+main {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.grid {
+    --gridPadding: 3rem;
+}
+
+.grid {
+    margin: 0;
+    padding: 0;
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+.wrap {
+    flex-wrap: wrap;
+}
+.flex-item {
+    display: block;
+}
