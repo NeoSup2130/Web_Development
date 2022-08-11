@@ -88,6 +88,13 @@
     margin-bottom: 1rem;
 }
 
+@media screen and (min-width: 768px) {
+    #pictures-videos .flex-item {
+    margin: 0;
+    margin-bottom: 1rem;
+    }
+}
+
 .template-200px {
     width: 180px;
     height: 128px;
