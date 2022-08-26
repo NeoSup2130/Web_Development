@@ -4,14 +4,8 @@
 
 .grid {
     width: 100%;
-    grid-template-columns: 3fr;
-    grid-template-rows: 0.5fr 320px 2fr 0.1fr;
-}
-
-@media screen and (max-width: 480px) {
-    .grid {
-        grid-template-rows: 0.55fr 0.2fr 2fr 0.1fr;
-    }
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.55fr 425px 2fr 0.2fr;
 }
 
 .grid {
@@ -20,6 +14,10 @@
     "Wide-Photo"
     "Content"
     "Footer";
+}
+
+#pictures-videos > h2 {
+    margin-top: 0.5rem;
 }
 
 .grid-Footer, #content, #cards, #pictures-videos > h2 {
@@ -36,6 +34,10 @@
     grid-area: Menu;
 }
 
+.grid-Menu > ul > li:nth-of-type(1) {
+    background-color: var(--navHoverColor);
+}
+
 .grid-Wide {
     grid-area: Wide-Photo;
     border-bottom: var(--borderVar);
@@ -44,6 +46,29 @@
 
 .grid-Wide {
     background-color: wheat;
+}
+
+.spanHover {
+    position: relative;
+}
+.spanHover > span, .spanHover + span {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    color: white;
+    text-shadow: -2px -2px 2px black;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.spanHover:hover > span, .spanHover:hover + span {
+    opacity: 1;
+}
+
+.wide-Photo {
+    box-sizing: content-box;
+    object-fit: cover;
 }
 
 .grid-Content {
@@ -59,8 +84,17 @@
     border-top: var(--borderVar);
 }
 
-#content, #pictures-videos {
+/* #content, #pictures-videos {
     border-bottom: var(--borderVar);
+} */
+
+.grid hr {
+    border-width: 1px;
+    border-style: solid;
+    width: 100%;
+}
+#pictures-videos hr {
+    width: calc(100% - var(--gridPadding) * 2);
 }
 
 /* Content section */
@@ -68,8 +102,13 @@
     width: 100%;
 }
 
+@media screen and (min-width: 768px) {
+    #content > .flex-item:first-child p {
+        padding: 0 1.5rem 0 0;
+    }
+}
+
 #content p {
-    padding: 0 1rem 0 0;
     text-align: justify;
     word-break: normal;
 }
@@ -196,7 +235,6 @@
 }
 
 .card {
-    width: min(50vw, 90%);
     display: block;
     padding: 1rem;
     margin: 0 auto 1rem auto;

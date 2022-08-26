@@ -7,7 +7,7 @@ body {
 }
 
 body {
-    --backDropColor: rgb(185, 185, 185);
+    --backDropColor: rgb(95, 32, 32);
     --frstColor: white;
     --sndColor: rgb(238, 238, 238);
     --navHoverColor: rgb(158, 158, 158);
@@ -32,6 +32,14 @@ main {
     margin: 0;
     padding: 0;
     display: grid;
+}
+
+.grid-Menu {
+    z-index: 1;
+}
+
+.grid-Content {
+    font-size: clamp(0.65rem, calc(0.65rem + 1.5vw), 1.25rem);
 }
 
 .flex {
