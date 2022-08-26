@@ -5,14 +5,19 @@
 .grid {
     width: 100%;
     grid-template-columns: 3fr;
-    grid-template-rows: 0.5fr 256px 0.5fr 0.5fr 2fr 0.5fr;
+    grid-template-rows: 0.5fr 320px 2fr 0.1fr;
+}
+
+@media screen and (max-width: 480px) {
+    .grid {
+        grid-template-rows: 0.55fr 0.2fr 2fr 0.1fr;
+    }
 }
 
 .grid {
-    grid-template-areas:    "Menu" 
+    grid-template-areas:    
+    "Menu" 
     "Wide-Photo"
-    "Content"
-    "Content"
     "Content"
     "Footer";
 }
@@ -24,15 +29,6 @@
 @media screen and (min-width: 768px) {
     .grid-Menu {
         padding: 0 var(--gridPadding);
-    }
-
-    .grid {
-        grid-template-areas:    ". Menu ." 
-        "Wide-Photo Wide-Photo Wide-Photo"
-        "Content"
-        "Content"
-        "Content"
-        "Footer Footer Footer";
     }
 }
 
@@ -72,6 +68,12 @@
     width: 100%;
 }
 
+#content p {
+    padding: 0 1rem 0 0;
+    text-align: justify;
+    word-break: normal;
+}
+
 @media screen and (min-width: 768px) {
     #content > .flex-item {
         width: 50%;
@@ -97,8 +99,11 @@
 }
 
 .template-200px {
-    width: 180px;
-    height: 128px;
+    --nItems: 5;
+    --widthTemp: max(180px, 100vw / var(--nItems) - 0.7rem * var(--nItems));
+    --heightTemp: calc(var(--widthTemp) * 0.5625);
+    width: var(--widthTemp);
+    height: var(--heightTemp);
     background-color: red;
 }
 
@@ -107,33 +112,81 @@
         display: block;
     }
     .template-200px {
-        width: 60vw;
-        height: 40vw;
+        width: 80vw;
+        height: calc(80vw * 0.5625);
         background-color: red;
     }
 }
 
 @media screen and (min-width: 768px) {
-    #pictures-videos .flex-item:nth-of-type(4),
-    #pictures-videos .flex-item:nth-of-type(5) {
+    .template-200px {
+    --nItems: 3;
+    }
+    
+    #pictures-videos .flex > *:nth-child(1) {
+        margin-left: var(--gridPadding);
+    }
+
+    #pictures-videos .flex > *:nth-child(3) {
+        margin-right: var(--gridPadding);
+    }
+
+    #pictures-videos .flex > *:nth-child(4),
+    #pictures-videos .flex > *:nth-child(5) {
         width: 50%;
         height: 256px;
     }
-    #pictures-videos .flex-item:nth-of-type(5) {
+    #pictures-videos .flex > *:nth-child(5) {
         background-color: blue;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    #pictures-videos .flex-item:nth-of-type(4),
-    #pictures-videos .flex-item:nth-of-type(5) {
-        width: 180px;
-        height: 128px;
+    .template-200px {
+        --nItems: 5;
     }
+    #pictures-videos .flex > *:nth-child(4),
+    #pictures-videos .flex > *:nth-child(5) {
+        width: var(--widthTemp);
+        height: var(--heightTemp);
+    }
+    
+    #pictures-videos .flex > *:nth-child(1) {
+        margin-left: 0;
+    }
+
+    #pictures-videos .flex > *:nth-child(3) {
+        margin-right: 0;
+    }
+
     #pictures-videos > .flex {
         padding: 0 var(--gridPadding);
     }
 }
+
+#pictures-videos .template-200px > video,
+#pictures-videos img,
+#pictures-videos .template-200px > iframe {
+    object-fit: cover;
+}
+
+.vidContainer {
+    position: relative;
+}
+.vidContainer > span {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+
+    color: white;
+    text-shadow: 2px 2px 1px black;
+    font-size: 1.1rem;
+
+    display: none;
+}
+.vidContainer:hover span {
+    display: inline;
+} 
 /* End of Pictures and videos section */
 
 #cards {
@@ -148,17 +201,32 @@
     padding: 1rem;
     margin: 0 auto 1rem auto;
 
-    background-color: green;
-    border: 1px solid purple;
+    background-color: rgb(220, 247, 220);
+    border: 0.5px solid black;
+    box-shadow: 0px 8px 16px grey;
+}
+
+.card img {
+    object-fit: contain;
 }
 
 .template-300px {
     width: 100%;
-    height: calc(5vw + 100px);
-    background-color: red;
+    height: 18vw;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+#cards > .card:nth-of-type(1) .template-300px {
+    background-color: white;
+}
+#cards > .card:nth-of-type(2) .template-300px {
+    background-color: rgb(91 147 252);
+}
+#cards > .card:nth-of-type(3) .template-300px {
+    background-color: rgb(13 17 23);
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
     .card {
        display: flex;
        flex-direction: row;

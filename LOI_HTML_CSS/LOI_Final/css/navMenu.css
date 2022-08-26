@@ -31,7 +31,17 @@ nav > ul {
 nav > a {
     height: 4rem;
     margin: 1ch 0;
+    position: relative;
 }
+
+nav > a::after {
+    position: absolute;
+    left: -0.5ch;
+    top: 105%;
+    width: 14ch;
+    content: "Slava's Portfolio";
+}
+
 a > img {
     height: 100%;
 }
@@ -63,19 +73,34 @@ nav .nav-item:hover {
 }
 
 nav li > label::after { content: ' »'; }
-nav li > input:checked ~ label::after { content: ' «'; }
+nav input:checked ~ .dropdown-menu > label::after { content: ' «'; }
 
 nav .dropdown-menu {
     position: relative;
+    height: 50px;
+    transition: height 0.2s ease-out;
 }
 
 nav .dropdown-menu ul {
-    display: none;
+    visibility: hidden;
+
+    transform:  translateY(-50%) scaleY(0);
+    transition: transform .2s ease-out;
+
     background-color: var(--sndColor);
 }
 
-nav input:checked ~ ul {
-    display: list-item;
+nav input:checked ~ .dropdown-menu {
+    height: 150px;
+}
+
+nav input:checked ~ .dropdown-menu > ul {
+    visibility: visible;
+    transform:  translateY(0) scaleY(1);
+}
+
+.dropdown-menu li {
+    width: 100%;
 }
 
 @media screen and (min-width: 768px){
@@ -93,6 +118,7 @@ nav input:checked ~ ul {
 
     nav .dropdown-menu {
         position: relative;
+        transition: none;
     }
     
     nav .dropdown-menu ul {
@@ -103,5 +129,9 @@ nav input:checked ~ ul {
     
     nav input:checked ~ ul {
         display: list-item;
+    }
+
+    nav input:checked ~ .dropdown-menu {
+        height: 50px;
     }
 }

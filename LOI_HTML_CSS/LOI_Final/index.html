@@ -3,7 +3,10 @@
 <head>
     <script type="text/javascript" src="js/typeWrite.js"></script>
     <script>
-        window.onload = function() {typeWriteEffect("title","Projects I worked on", 150); };
+        window.onload = function() {
+            typeWriteEffect("Projecten","Paar projecten waar ik aan heb gewerkt.", 100);
+            typeWriteEffect("Interesses?","Wat zijn mijn interesses?", 50);
+            typeWriteEffect("Wie?","Wie ben ik?", 50); };
     </script>
 
     <meta charset="UTF-8">
@@ -21,62 +24,83 @@
             <ul>
                 <li><a href="#" class="nav-item">Home</a></li>
                 <li><a href="#" class="nav-item">Web dev</a></li>
-                <li><a href="#" class="nav-item">Game dev</a></li>
+
+                <input type="checkbox" id="games">
                 <li class="dropdown-menu">
-                    <input type="checkbox" id="socials">
-                    <label for="socials" class="nav-item">Social media</label>
+                    <label for="games" class="nav-item">Game Dev</label>
                     <ul>
-                        <li><a href="#" class="nav-item">Linkedin</a></li>
-                        <li><a href="#" class="nav-item">Twitter</a></li>
+                        <li><a href="#" class="nav-item">Team projecten</a></li>
+                        <li><a href="#" class="nav-item">Solo projecten</a></li>
                     </ul>
                 </li>
+                <li><a href="#" class="nav-item">Social media</a></li>
                 <li><a href="#" class="nav-item">Contact</a></li>
             </ul>
         </nav>
-        <picture class="grid-Wide wide-Photo">
-
-        </picture>
+        <img src="images/Y2_Setsuko_SplashArt.png" width="100%" class="grid-Wide wide-Photo" alt="" srcset="">
         <section class="highlight grid-Content">
             <section class="flex wrap" id="content">
                 <div class="flex-item">
-                    <h2>Content</h2>
-                    <p>Lorem ipsum dolor sit.</p>
+                    <h2 id="Wie?">&nbsp;<!-- Wie ben ik? --></h2>
+                    <p>Een harde werker die ontzettend leergierig is. Mijn ambitie is om werk te doen waar ik problemen kan oplossen.
+                        Deze kunnen zowel programmatisch of gebruikerservaring zijn. Op dit moment ben ik een derdejaars student aan BUAS (Breda University of Applied Sciences)
+                        voorheen NTHV. Daar volg ik de studie <em>Creative Media and Games Technologies</em>
+                    </p>
                 </div>
                 <div class="flex-item">
-                    <h2>Content</h2>
-                    <p>Lorem ipsum dolor sit.</p>
+                    
+                    <h2 id="Interesses?">&nbsp;<!-- Wat zijn mijn interesses? --></h2>
+                    <p>Ik houd ervan om problemen op te lossen. Bij het programmeren van spellen komt deze eigenschap van mij naar boven.
+                        Echter, houd het hierbij niet op. Sinds kort ben ik begonnen met een cursus voor front-end web development bij LOI. 
+                        Er zijn veel mogelijkheden om te groeien rondom het gebied van programmeertalen. Daarnaast zou ik graag mezelf willen verdiepen
+                        in de communicatie tussen hard- en software.
+                    </p>
                 </div>
             </section>
             <section id="pictures-videos">
-                <h2>Foto's, videos etc.</h2>
+                <h2 id="Projecten">&nbsp;<!-- Paar projecten waar ik aan heb gewerkt. --></h2>
                 <div class="flex wrap">
-                <img src="" alt="one" class="template-200px flex-item">
-                <img src="" alt="two" class="template-200px flex-item">
-                <img src="" alt="three" class="template-200px flex-item">
-                <img src="" alt="four" class="template-200px flex-item">
-                <img src="" alt="five" class="template-200px flex-item">
+                    <img src="images/Y2_Setsuko.png" alt="one" class="template-200px flex-item">
+                    <div class="template-200px flex-item vidContainer">
+                        <span>AI path tool - Year 2</span>
+                        <video width="100%" height="100%" controls loop>
+                            <source src="videos/EditorChimneyLD.mp4">
+                        </video>
+                    </div>
+                    <img src="images/Y1_Asteroids.gif" alt="three" class="template-200px flex-item">
+                    <div class="template-200px flex-item">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/GWj-VUpAMGs" title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                    </div>
+                    <div class="template-200px flex-item vidContainer">
+                        <span>Ray tracing project - Year 1</span>
+                        <video width="100%" height="100%" controls loop>
+                            <source src="videos/RayTracing_SlavaTakrovskij.mp4">
+                        </video>
+                    </div>
                 </div>
             </section> 
             <section id="cards" class="flex wrap">
                 <div class="card">
-                    <img src="" alt="five" class="template-300px flex-item">
+                    <img src="images/Y2_Gudenuff.png" alt="five" class="template-300px flex-item">
                     <div class="card-info">
-                        <h3>Plaatje</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deserunt eaque exercitationem repellat cumque incidunt quia vel id omnis? Id?</p>
+                        <h3>Team projecten</h3>
+                        <p>Een verzameling van games waar ik aan heb gewerkt binnen een teamverband. Hierbij werd Unreal 4 gebruikt of een custom C++ engine die eerder door mijn team is gemaakt.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="" alt="five" class="template-300px flex-item">
+                    <img src="images/Y1_Mario.png" alt="five" class="template-300px flex-item">
                     <div class="card-info">
-                        <h3>Plaatje</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deserunt eaque exercitationem repellat cumque incidunt quia vel id omnis? Id?</p>
+                        <h3>Solo projecten</h3>
+                        <p>Tijdens mijn studie heb ik enkele games zelf gemaakt. Daarnaast heb ik buitenom mijn studie ook prototypes of kleine games ontworpen.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="" alt="five" class="template-300px flex-item">
+                    <img src="images/WebDev.png" alt="five" class="template-300px flex-item">
                     <div class="card-info">
-                        <h3>Plaatje</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deserunt eaque exercitationem repellat cumque incidunt quia vel id omnis? Id?</p>
+                        <h3>Web projecten</h3>
+                        <p>Naast mijn studie volg ik een cursus front-end web development. Hierbij heb ik tot nu toe veel aan mijn HTML5 en CSS skills gewerkt.</p>
                     </div>    
                 </div>
             </section>
