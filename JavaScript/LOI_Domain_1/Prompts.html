@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test prompts</title>
+</head>
+<body>
+    <button id="alert">Try an Alert!</button>
+    <button id="confirm">Try a Confirm!</button>
+    <p id="confirmText">Confirm text here!</p>
+    <button id="prompt">Try a prompt!</button>
+    <p id="promptText">Prompt text here!</p>
+
+    <script>
+        function alertTest() 
+        {
+            alert("This is an alert test!");
+        }
+
+        function confirmTest()
+        {
+            const stringTest = "User input: ";
+            const text = document.getElementById("confirmText");
+            let userConfirm = confirm("This is a confirm message!");
+
+            if (userConfirm) text.innerHTML = stringTest + "true";
+            else text.innerHTML = stringTest + "false";
+        }
+        function promptTest()
+        {
+            const stringTest = "User input: ";
+            const text = document.getElementById("promptText");
+            let userValue = prompt("This is a prompt, test value", "change me!");
+
+            text.innerHTML = stringTest + userValue;
+        }
+
+        document.getElementById("alert").addEventListener("click", alertTest);
+        document.getElementById("confirm").addEventListener("click", confirmTest);
+        document.getElementById("prompt").addEventListener("click", promptTest);
+    </script>
+</body>
+</html>

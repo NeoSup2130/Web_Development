@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+
+        function swap(a, b) {
+            let c = a;
+            a = b;
+            b = c;
+        }
+
+        const arrayUtils = {
+            yatesShuffle : function(args) {
+                var m = args.length, i;
+                // While there remain elements to shuffle…
+                while (m) {
+                    // Pick a remaining element…
+                    i = Math.floor(Math.random() * m--);
+                    let t = args[m];
+                    args[m] = args[i];
+                    args[i] = t;
+                }
+                return args;
+            }
+        }
+
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <p>Add data</p>
+    <p>
+        <input type="text" name="userInput" id="arrayInput">
+        <button id="input">Add</button>
+    </p>
+    <p id="output">&nbsp;</p>  
+    <p>
+        <button id="shuffle">Shuffle</button>
+    </p>  
+    <script>
+        let myArray = [];
+
+        const output = document.getElementById("output");
+        const inputBtn = document.getElementById("input");
+        const shuffleBtn = document.getElementById("shuffle");
+        inputBtn.addEventListener("click", updateArray);
+        shuffleBtn.addEventListener("click", handleShuffle);
+
+        function handleShuffle() {
+            myArray = arrayUtils.yatesShuffle.call(this, myArray);
+            displayArray(myArray);
+        }
+
+        function displayArray(array) {
+            let result = "";
+            let len = array.length;
+
+            for (let i = 0; i < len; i++) 
+            {
+                result += array[i];
+                if (len != 1 && i != (len - 1))
+                    result += ", ";
+            }
+            
+            output.innerHTML = result;
+        }
+
+        function updateArray() {
+            const item = document.getElementById("arrayInput").value;
+            if(item != undefined && item != "")
+                console.log("new array item is: " + item);
+            else 
+            {
+                console.log("invalid data added!");
+                return;
+            }
+            myArray.push(item);
+            displayArray(myArray);
+            
+            document.getElementById("arrayInput").value = null;
+        }
+    </script>
+</body>
+</html>

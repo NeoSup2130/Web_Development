@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebVersie</title>
+</head>
+<body>
+    <p id="appName"></p>
+    <p id="webVer"></p>
+    <script>
+        const appString = navigator.appName;
+        const webString = navigator.appVersion;
+
+        document.getElementById('appName').innerHTML = appString + "\n" + webString;
+        document.getElementById('webVer').innerHTML = webString;
+    </script>
+</body>
+</html>

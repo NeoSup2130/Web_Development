@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oefening 1</title>
+</head>
+<body>
+    <!-- 
+        Als de pagina geladen is, opent een pop-upvenster met de melding 'Pagina geladen'.
+
+        Als deze pop-up weggeklikt wordt, opent een pop-upvenster met invulveld en de vraag 'Wat is uw naam?'
+
+        Als een naam ingevuld is, moet een nieuw pop-upvenster openen met de vraag 'Uw naam is [de naam die u ingevuld hebt], is dit correct?' én de knoppen 'OK' en 'annuleren'.
+
+        Als de gebruiker annuleert, wordt opnieuw het pop-upvenster met de eerste vraag weergegeven. Als de gebruiker op OK klikt, wordt dit venster niet getoond.
+
+        Vervolgens wordt in de HTML-pagina de tekst 'Welkom [de naam die u ingevuld heeft], een fijne dag gewenst!' weergegeven.
+
+        Gebruik let in plaats van var.
+
+        Bij de ondersteunende informatie vindt u het zipbestand Bestanden oefeningen SA. Hierin bevind zich het document oefening1.html met de uitwerking van deze oefening.
+
+        Ondersteunende informatie
+     -->
+     <h1 id="welcome"></h1>
+     <script>
+        alert("Pagina geladen");
+        let userName = "";
+        let flag = false;
+        while(!flag)
+        {
+            userName = prompt("Wat is uw naam?");
+            flag = confirm("Uw naam is " + userName + ", is dit correct?");
+        }
+        document.getElementById("welcome").innerHTML = "Welkom " + userName + ", een fijne dag gewenst!"
+     </script>
+</body>
+</html>
