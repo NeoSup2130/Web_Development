@@ -1,23 +1,48 @@
-var intervalID = 0;
+// var intervalID = 0;
 
-checkDocumentState();
+// checkDocumentState();
 
-function checkDocumentState()
-{
-    console.log("Check document...");
+// function checkDocumentState()
+// {
+//     console.log("Check document...");
 
-    if(document.readyState == "complete")
+//     if(document.readyState == "complete")
+//     {
+//         clearInterval(intervalID);
+//         console.log("document is loaded... Start quiz!");
+//         // startQuiz();
+//     }
+//     else  
+//     {
+//         console.log("wait...");
+//         intervalID = setInterval(checkDocumentState, 100);
+//     }
+// }
+
+const view = {
+    score : document.querySelector('#score strong'),
+    question : document.getElementById('question'),
+    result : document.getElementById('result'),
+    info : document.getElementById('info'),
+    start : document.getElementById('start'),
+    render(target, content, attributes) 
     {
-        clearInterval(intervalID);
-        console.log("document is loaded... Start quiz!");
-        startQuiz();
-    }
-    else  
+        for (const key in attributes)
+        {
+            target.setAttribute(key, attributes[key]);
+        }
+        target.innerHTML = content;
+    },
+    show(element) 
     {
-        console.log("wait...");
-        intervalID = setInterval(checkDocumentState, 100);
+        element.style.display = 'block';
+    },
+    hide(element) 
+    {
+        element.style.display = 'none';
     }
 }
+
 const game = {
 
     play(quiz) 
@@ -35,6 +60,8 @@ const game = {
     ask() 
     {
         const question = `What is ${this.question.name}'s real name?`;
+        view.render(view.question, question);
+        
         const response = prompt(question);
         this.check(response);
     },
@@ -44,20 +71,24 @@ const game = {
         if (input == this.question.realName)
         {
             this.score++;
-            alert('This is correct!');
+            view.render(view.result, 'This is correct!', {'class' : 'correct'});
+
         } else {
             this.score--;
-            alert(`This is wrong! The answer is ${this.question.realName}`);
+            const info = `This is wrong! The answer is ${this.question.realName}`;
+            view.render(view.result, info, {'class' : 'wrong'});
         }
+        view.render(view.score, this.score);
+
     },
     
     gameOver() 
     {
-        alert(`Game over Crash, you scored ${this.score} point${this.score != 1 ? 's' : ''}`);
+        const gameOverText = `Game over Crash, you scored ${this.score} point${this.score != 1 ? 's' : ''}`;
+        view.render(view.info, gameOverText);
+        view.show(view.start);
     }
 }
-
-
 
 const quiz = [
     { name: "Superman",realName: "Clark Kent" },
@@ -74,6 +105,8 @@ function startQuiz()
                         ["Is he from DC or Marvel?", "DC"],
                         ["What is Wonder Woman's real name?", "Diana Prince"],
                         ["What is Batmans's real name?", "Bruce Wayne"]];
+    view.hide(view.start);
     game.play(quiz);
 }
 
+view.start.addEventListener('click', startQuiz, false);
