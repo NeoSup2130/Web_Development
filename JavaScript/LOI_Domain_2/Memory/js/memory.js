@@ -1,22 +1,25 @@
 "use strict";
 
-const myCardArray = [
-    "duck", "kitten", "piglet", "puppy", "calf", "veal", "lamb", "rooster",
-    "horse", "mouse", "dog", "cat", "goose", "goat", "sheep", "pig", "cow", "chick", "hen"
-];
-
-let myCardSet = [];
-
 class Card 
 {
-    constructor(card1, card2 = card1, set = card1, sound = card1) 
+    constructor(cardObject) 
     {
-        this.card1 = card1;
-        this.card2 = card2;
-        this.set = set;
-        this.sound = sound;
+        this.card1 = cardObject.card1;
+        this.card2 = cardObject.card2;
+        this.set = cardObject.set;
+        this.sound = cardObject.sound;
     }
 }
+
+function fetchCards() 
+{
+    const path = './assets/cards.json';
+    return fetch(path).then
+        (response => response.json()).then
+            (cards => cards.map(card => new Card(card)));
+}
+
+let myCardArray = fetchCards().then(result => myCardArray = result);
 
 const arrayUtils = {
     yatesShuffle : function(args) 
@@ -60,12 +63,27 @@ const view =
 }
 
 view.myField.addEventListener('click', onClickCard);
-view.btnGenerate.addEventListener('click', populateField);
+view.btnGenerate.addEventListener('click', startGame);
 view.boardSelect.addEventListener('change', onSelectFieldSize);
 
 function onSelectFieldSize() 
 {
     view.btnGenerate.disabled = false;
+}
+
+function startGame()
+{
+    let myCardSet = [];
+    arrayUtils.yatesShuffle.call(this, myCardArray);
+
+    // Bereken de helft van de set. Ex. 5^2 = 25 dus de helft is 25 / 2 = 12
+    const arrayEnd = Math.floor(Math.pow(4 + view.getBoardIndex(), 2) / 2);
+
+    myCardSet = myCardArray.slice(0, arrayEnd);
+    myCardSet = myCardSet.concat(myCardSet);
+    arrayUtils.yatesShuffle.call(this, myCardSet);
+
+    populateField(myCardSet);
 }
 
 function onClickCard(event)
@@ -88,20 +106,10 @@ function onClickCard(event)
     }
 }
 
-function populateField()
+function populateField(cardDeck)
 {
     view.clearField();
-    arrayUtils.yatesShuffle.call(this, myCardArray);
-
-    // Bereken de helft van de set. Ex. 5^2 = 25 dus de helft is 25 / 2 = 12
-    const arrayEnd = Math.floor(Math.pow(4 + view.getBoardIndex(), 2) / 2);
-
-    let myDblCardArray = myCardArray.slice(0, arrayEnd);
-    myDblCardArray = myDblCardArray.concat(myDblCardArray);
-    arrayUtils.yatesShuffle.call(this, myDblCardArray);
-    
-    myCardSet = myDblCardArray.map(animal => new Card(animal));
-    myCardSet.forEach(card => createCard(card.card1));
+    cardDeck.forEach(card => createCard(card.card1));
 }
 
 function createCard(value, index, array) 
