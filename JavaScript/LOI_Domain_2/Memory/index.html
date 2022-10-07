@@ -8,7 +8,13 @@
 </head>
 
 <body>
-	<button id="generate">Generate Cards</button>	
+	<select name="boardSize" id="boardSelection">
+		<option value="default" selected disabled>Kies een speelveld</option>
+		<option value="4">4 x 4</option>
+		<option value="5">5 x 5</option>
+		<option value="6">6 x 6</option>
+	</select>	
+	<button id="generate" disabled>Generate Cards</button>
 	<div id="field"></div>
 	<script src="js/memory.js" type="module"></script>
 </body>
