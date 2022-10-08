@@ -8,13 +8,26 @@
 </head>
 
 <body>
-	<select name="boardSize" id="boardSelection">
-		<option value="default" selected disabled>Kies een speelveld</option>
-		<option value="4">4 x 4</option>
-		<option value="5">5 x 5</option>
-		<option value="6">6 x 6</option>
-	</select>	
-	<button id="generate" disabled>Generate Cards</button>
+	<div class="gameBar">
+		<div class="flex">
+			<div id="input">
+				<label for="boardSize">Board size:</label>
+				<select name="boardSize" id="boardSelection"> 
+					<option value="default" selected disabled>Kies een speelveld</option>
+					<option value="4">4 x 4</option>
+					<option value="5">5 x 5</option>
+					<option value="6">6 x 6</option>
+				</select>	
+			</div>
+			<button id="generate" disabled>Generate Cards</button>
+		</div>
+		<div class="flex">
+			<p id="attemptsTitle">Attempts: <span id="attempts">0</span></p>
+			<p id="successTitle">Successes: <span id="successes">0</span></p>
+			<p id="scoreTitle">Your score: <span id="score">0</span></p>
+		</div>
+	</div>
+	<div id="timer"> <p>Time left</p> <p id="gameTime">02:30</p> </div>
 	<div id="field"></div>
 	<script src="js/memory.js" type="module"></script>
 </body>
