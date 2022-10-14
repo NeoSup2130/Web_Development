@@ -239,12 +239,24 @@ const playerController =
 
 function greetPlayer()
 {
-    let value = utilities.getCookie('playerName');
-    if (value == undefined)
+    let pName = utilities.getCookie('playerName');
+    if (pName == undefined)
     {
-        value = encodeURIComponent(prompt("Wat is jouw naam nieuwe speler?"));
-        utilities.setCookie('playerName', value, 1);
+        const naamRegex = /^[a-zA-Z]+$/;
+        const naamVraag = "Wat is jouw naam nieuwe speler?";
+
+        pName = prompt(naamVraag);
+        while(!naamRegex.test(pName))
+        {
+            alert("Er is iets mis met uw naam, probeer het nog is");
+            pName = prompt(naamVraag);
+        }
+        utilities.setCookie('playerName', pName, 1);
     }
+
+    playerController.playerName = pName;
+    let welcome = `Welcome ${pName}! You can play my memory game now :)`;
+
     let scores = '';
     playerController.scores.forEach(size => 
         {
@@ -252,8 +264,12 @@ function greetPlayer()
             if (score != undefined)
                 scores += `board ${size} = ${score}\n`;
         })
-    alert(`Welcome ${value}! You can play my memory game now :)\nYour last scores were\n` + scores);
-    playerController.playerName = value;
+    
+    if(scores != '')
+    {
+        welcome += `\nYour last scores were\n` + scores;
+    }
+    alert(welcome);
 }
 
 greetPlayer();
