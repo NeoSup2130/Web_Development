@@ -1,0 +1,109 @@
+*, *::before, *::after 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    padding-bottom: 100px;
+}
+
+/* Intro section */
+.intro {
+    padding: 100px 0;
+    background-color: rgb(250, 137, 137);
+    width: 100vw;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Timeline */
+
+.timeline ul {
+    background: #456990;
+    padding: 50px 0;
+}
+
+.timeline ul li {
+    list-style-type: none;
+    position: relative;
+    width: 4px;
+    margin: 0 auto;
+    padding-top: 50px;
+    background: #fff;
+}
+
+.timeline ul li::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    background: inherit;
+    z-index: 1;
+  }
+
+.timeline ul li div::before {
+    content: "";
+    position: absolute;
+    bottom: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.timeline ul li div {
+    left: 45px;
+  }
+  
+  .timeline ul li div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #f45b69 transparent transparent;
+  }
+
+.timeline ul li div {
+    position: relative;
+    bottom: 0;
+    max-width: 400px;
+    width: 50vw;
+    padding: 15px;
+    background: #f45b69;
+}
+
+time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Effects */
+
+.timeline ul li::after {
+    transition: background 0.5s ease-in-out;
+}
+  
+  .timeline ul li.in-view::after {
+    background: #f45b69;
+}
+
+.timeline ul li div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li.in-view div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
