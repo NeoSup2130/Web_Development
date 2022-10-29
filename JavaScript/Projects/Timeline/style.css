@@ -11,99 +11,140 @@ body {
 
 /* Intro section */
 .intro {
+    background-color: brown;
     padding: 100px 0;
-    background-color: rgb(250, 137, 137);
-    width: 100vw;
 }
 
 .container {
+    width: 90%;
     text-align: center;
+    margin: 0 auto;
 }
 
-/* Timeline */
+/* Timeline section */
+.timeline {
+    background-color: rgb(11, 132, 136);
+    color: aliceblue;
+}
 
 .timeline ul {
-    background: #456990;
-    padding: 50px 0;
+    --div-bg-color: rgb(8, 74, 77);
+    padding: 50px;
 }
 
 .timeline ul li {
-    list-style-type: none;
+    --pad-top: 50px;
+    --pad-bot: 50px;
+
+    list-style: none;
+    width: 6px;
+    background-color: white;
     position: relative;
-    width: 4px;
-    margin: 0 auto;
-    padding-top: 50px;
-    background: #fff;
+
+    padding: var(--pad-top) 0 var(--pad-bot) 0;
 }
 
-.timeline ul li::after {
+.timeline ul li::before {
     content: "";
     position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
 
+    border-radius: 50%;
     width: 30px;
     height: 30px;
-    border-radius: 50%;
+    background-color: inherit;
 
-    background: inherit;
-    z-index: 1;
-  }
+    /* Centers element inside li */
+    left: 50%;
+    transform: translateX(-50%);
 
-.timeline ul li div::before {
-    content: "";
-    position: absolute;
-    bottom: 7px;
-    width: 0;
-    height: 0;
-    border-style: solid;
+    bottom: 50%;
 }
 
-.timeline ul li div {
-    left: 45px;
-  }
-  
-  .timeline ul li div::before {
-    left: -15px;
-    border-width: 8px 16px 8px 0;
-    border-color: transparent #f45b69 transparent transparent;
-  }
+.timeline ul li::after {
+    content: "";
+    position: absolute;
+
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: inherit;
+
+    /* Centers element inside li */
+    left: 50%;
+    bottom: 50%;
+
+    transform: translate3D(-50%, -50%, 0);
+    z-index: 1;
+}
 
 .timeline ul li div {
     position: relative;
-    bottom: 0;
-    max-width: 400px;
-    width: 50vw;
-    padding: 15px;
-    background: #f45b69;
+    left: 45px;
+    bottom: calc(var(--pad-bot) * 1 + 5px);
+
+    min-width: 200px;
+    width: 40vw;
+    max-width: 350px;
+    padding: 20px;
+
+    background-color: var(--div-bg-color);
 }
 
-time {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 8px;
+.timeline ul li div::before {
+    --rBorder: 8px 16px 8px 0px;
+    --lBorder: 8px 0px 8px 16px;
+    --lColor: transparent transparent transparent var(--div-bg-color);
+    --rColor: transparent var(--div-bg-color) transparent transparent;
+
+    content: "";
+    border-style: solid;
+    position: absolute;
+    bottom: 8px;
+
+    /* Default border position */
+    border-width: var(--rBorder);
+    border-color: var(--rColor);
+    left: -15px;
 }
 
-/* Effects */
+@media screen and (min-width:768px) {
 
-.timeline ul li::after {
-    transition: background 0.5s ease-in-out;
-}
-  
-  .timeline ul li.in-view::after {
-    background: #f45b69;
+    .timeline ul li {
+        margin: 0 auto;
+    }
+    .timeline ul li:nth-child(even) div::before {
+        border-width: var(--lBorder);
+        border-color: var(--lColor);
+        right: -15px;
+        left: auto;
+    }
+    .timeline ul li:nth-child(even) div {
+        left: auto;
+        right: calc((min(max(200px, 40vw), 350px) + 39px));
+    }
 }
 
+/* Effects timeline */
 .timeline ul li div {
-    visibility: hidden;
     opacity: 0;
-    transition: all 0.5s ease-in-out;
+    transition: all ease-in-out 0.5s;
+    transform: translateX(100px);
+}
+
+@media screen and (min-width:768px) {
+    .timeline ul li:nth-child(even) div {
+        transform: translateX(-100px);
+    }
 }
 
 .timeline ul li.in-view div {
-    transform: none;
-    visibility: visible;
     opacity: 1;
+    transform: translateX(0px);
+
+}
+
+.timeline ul li.in-view::after {
+    background-color: var(--div-bg-color);
+    box-shadow: -3px 10px 10px 5px rgba(0,0,0,0.2);
+    transition: background ease-in-out 0.5s;
 }
