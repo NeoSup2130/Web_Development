@@ -23,7 +23,7 @@ class taskItem {
 }
 
 const model = {
-    createTask : function(taskName, checked = false)
+    createTask : function()
     {
         let nextID = 0;
         function create(taskName, checked = false)
