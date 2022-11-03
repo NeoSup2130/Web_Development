@@ -29,7 +29,7 @@ function callbackFunc()
 }
 
 callbackFunc();
-setInterval(callbackFunc, 0.333);
+setInterval(callbackFunc, 333); // 30 frames per second
 
 // window.addEventListener("load", callbackFunc);
 // window.addEventListener("resize", callbackFunc);
