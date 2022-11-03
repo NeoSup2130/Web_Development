@@ -133,7 +133,7 @@ function isInputValid()
         const words = inputValue.split(' ');
         for (let i = 0; i < words.length; i++)
         {
-            if (regexCase.test(words[0]))
+            if (regexCase.test(words[i]) || words[i] == '')
             {
                 setInputInvalid(inputTask);
                 return false;
