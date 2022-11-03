@@ -1,3 +1,5 @@
+"use-strict";
+
 function getCookie(key) 
 {
     return document.cookie.split('; ').find((row) => row.startsWith(`${key}=`))?.split('=')[1];
@@ -23,10 +25,15 @@ class taskItem {
 const model = {
     createTask : function(taskName, checked = false)
     {
-        const id = this.tasks.length;
-        this.tasks.push(new taskItem(taskName, checked));
-        return id;
-    },
+        let nextID = 0;
+        function create(taskName, checked = false)
+        {
+            const id = nextID++;
+            this.tasks.set(id, new taskItem(taskName, checked));
+            return id;
+        }
+        return create;
+    }(),
     getTaskID : function(event)
     {
         const id = event.target.parentElement.taskID;
@@ -35,19 +42,21 @@ const model = {
     },
     updateChecked : function(event)
     {
-        this.tasks[this.getTaskID(event)].checked = event.target.checked;
+        this.tasks.get(this.getTaskID(event)).checked = event.target.checked;
         this.saveTasks();
     },
     deleteTask : function (event)
     {
         const id = this.getTaskID(event);
-        this.tasks.splice(id, 1);                                                                                                                                                           
+        this.tasks.delete(id);                                                                                                                                                          
         this.saveTasks();
         view.remove(event);
     },
     saveTasks : function()
     {
-        setCookie(this.cookieKey, JSON.stringify(this.tasks), 1);
+        // id might be used for the back-end, but for now it's left out.
+        const array = [...this.tasks].map(([id, task]) => (task));
+        setCookie(this.cookieKey, JSON.stringify(array), 1);
     },
     loadTasks : function()
     {
@@ -60,14 +69,15 @@ const model = {
         }
     },
     cookieKey : "savedTasks",
-    tasks : []
+    tasks : new Map()
 }
 
 const view = {
     todoList : document.getElementById('todo-list'),
+    displayList : document.querySelector("#todo-list [name=display]"),    
     display : function(taskID) 
     {
-        const task = model.tasks[taskID];
+        const task = model.tasks.get(taskID);
 
         let newItem = document.createElement('li');
         newItem.classList.add('task-container');
@@ -77,22 +87,22 @@ const view = {
         checkbox.type = 'checkbox';
         checkbox.checked = task.checked;
         checkbox.addEventListener('change', model.updateChecked.bind(model), false);
-        newItem.appendChild(checkbox);
 
         let taskP = document.createElement('p');
         taskP.innerText = task.name;
-        newItem.appendChild(taskP);
 
         let delBtn = document.createElement('button');
         delBtn.addEventListener('click', model.deleteTask.bind(model), false);
         delBtn.innerText = "Delete";
-        newItem.appendChild(delBtn);
 
-        this.todoList.firstElementChild.appendChild(newItem);
+        this.displayList.appendChild(newItem);
+        newItem.appendChild(checkbox);
+        newItem.appendChild(taskP);
+        newItem.appendChild(delBtn);
     },
     remove : function(event)
     {
-        this.todoList.firstElementChild.removeChild(event.target.parentElement);
+        this.displayList.removeChild(event.target.parentElement);
     }
 }
 
