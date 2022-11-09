@@ -1,0 +1,17 @@
+[
+	{
+		"name":"Fetch API",
+		"h2":"Fetch API",
+		"hr":"",
+		"p":"Press the button to fetch some data!",
+		"button":{"callback":"doAlert","text":"Fetch"}
+	},
+	{
+		"name":"History API",
+		"h2":"History API",
+		"hr":"",
+		"p":"Press the button to History some data!",
+		"button":{"callback":"doAlert","text":"History"}
+	}
+]
+	

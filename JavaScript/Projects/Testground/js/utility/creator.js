@@ -6,9 +6,9 @@ export function createElement(type, id='')
     return el;
 }
 
-export function createParagraph(text, id='')
+export function createText(type, text, id='')
 {
-    let p = createElement('p', id);
+    let p = createElement(type, id);
     p.innerText = text;
     return p;
 }
@@ -26,4 +26,11 @@ export function createButton(callback, text='', id='')
     b.addEventListener('click', callback);
     b.innerText = text;
     return b;
+}
+
+export function createHyperlink(href='', id='')
+{
+    let a = createElement('a', id);
+    a.href = href;
+    return a;
 }
