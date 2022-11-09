@@ -139,7 +139,7 @@
 
 .template-200px {
     --nItems: 5;
-    --widthTemp: max(180px, 100vw / var(--nItems) - 0.7rem * var(--nItems));
+    --widthTemp: max(180px, 100vw / var(--nItems) - 0.8rem * var(--nItems));
     --heightTemp: calc(var(--widthTemp) * 0.5625);
     width: var(--widthTemp);
     height: var(--heightTemp);
