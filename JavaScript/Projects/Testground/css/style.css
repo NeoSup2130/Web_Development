@@ -1,6 +1,7 @@
 /* Default values */
 body {
     box-sizing: border-box;
+    font-size: 120%;
 }
 
 *, *::after, *::before {
@@ -15,7 +16,7 @@ body {
 
 #bodyContainer {
     background-color: rgb(182, 182, 182);
-    height: 100vh;
+    height: fit-content;
     padding: var(--bodyPad) 0;
 }
 /* Avoids fake margin between nav and body */
@@ -68,4 +69,8 @@ nav li {
 /* container elements */
 .container button {
     min-width: 4rem;
+}
+
+.container p {
+    word-break: break-all;
 }
