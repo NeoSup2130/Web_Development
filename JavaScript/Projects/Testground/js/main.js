@@ -30,8 +30,35 @@ const testFunctions =
     doPrompt()
     {
         prompt('Hello');
+    },
+    windowFunc(p)
+    {
+        const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        wait(1 * 100).then(() =>
+            {
+                p.innerHTML=`
+                Window width = ${window.innerWidth}px <br>
+                Window height = ${window.innerHeight}px <br>
+                Window location = ${window.location} <br>
+                Window locationbar visibility = ${window.locationbar.visible} <br>
+                Window name = ${window.name}; <br>
+                Window opener = ${window.opener}; <br><br>
+                Session storage example: <br>
+                Fill in the text box below then refresh the page <br>
+                <input id='sessionText' type='text'></input>
+                `;
+                const autoSave = document.getElementById('sessionText');
+                const savedValue = sessionStorage.getItem('autosave');
+               
+                if (savedValue) autoSave.value = savedValue;
+                
+                autoSave.addEventListener('change', () => {
+                    window.sessionStorage.setItem('autosave', autoSave.value);
+                });
+
+            }
+        )   
     }
-    ,
 }
 
 function parseModuleHTML(input)
@@ -53,7 +80,21 @@ function parseModuleHTML(input)
             sect.appendChild(creator.createElement('hr'));
             break;
             case 'p':
-            let p = creator.createText('p', value);
+            const pValue = value;
+            let p;
+            switch(typeof pValue)
+            {
+                case "object":
+                    p = creator.createText('p', value.text);
+                    testFunctions[value.callback](p);
+                break;
+                case "string":
+                    p = creator.createText('p', value);
+                break;
+                default:
+                    alert('p contains invalid data!');
+                    break;
+            }
             sect.appendChild(p);
             break;
             case 'button':
@@ -73,9 +114,12 @@ fetch("./data/HTMLModules.json")
     .then((response) => response.json())
     .then((data) => 
     {
+        data.map(module => parseModuleHTML(module));
+        /* For loop equivalent
         for(const module of data)
         {
             parseModuleHTML(module);
         }
+        */ 
     })
 

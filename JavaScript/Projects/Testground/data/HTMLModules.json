@@ -7,6 +7,12 @@
 		"button":{"callback":"doAlert","text":"Fetch"}
 	},
 	{
+		"name":"Window API",
+		"h2":"Window API",
+		"hr":"",
+		"p":{"callback":"windowFunc", "text":"loading..."}
+	},
+	{
 		"name":"History API",
 		"h2":"History API",
 		"hr":"",
