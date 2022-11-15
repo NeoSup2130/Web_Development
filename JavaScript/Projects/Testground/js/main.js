@@ -23,6 +23,8 @@ function createSection(name)
 
 const testFunctions =
 {
+    wait : (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+
     doAlert()
     {
         alert('Button!');
@@ -31,10 +33,53 @@ const testFunctions =
     {
         prompt('Hello');
     },
+    historyModule(event)
+    {
+        const eParent = event.target.parentElement;
+        const eTarget = eParent.querySelector('#hisField'); 
+        eTarget.innerText = `Number of entries in history = ${history.length}`;
+        eParent.appendChild(creator.createButton(() => history.go(), 'go()'));
+        eParent.appendChild(creator.createButton(() => history.go(-1), 'go(-1)'));
+        eParent.appendChild(creator.createButton(() => history.go(1), 'go(1)'));
+        eParent.appendChild(creator.createButton(() => history.back(), 'back()'));
+        
+        eParent.removeChild(event.target);
+    },
+    imageModule(p)
+    {
+        let idCounter = Math.floor(Math.random() * new Date().getTime());
+
+        const getRandomImgURL = (w = 200, h = w) => {
+            return `https://picsum.photos/seed/${idCounter++}/${w}/${h}`;
+        }
+
+        const getRandomImg = (w = 200, h = w) => {
+            let img = new Image(w, h);
+            img.src = getRandomImgURL(w, h);
+            return img;
+        }
+
+        this.wait(1 * 100).then(() =>
+        { 
+            p.innerText = `Hover over an image to see another random image! \n\n`;
+            // JavaScript and its function scopes is a sight to behold
+            p.appendChild(creator.createButton(() => 
+            {
+                const img = getRandomImg(200);
+                p.parentElement.appendChild(img);
+                
+                // This works, because the anonymous functions keep this scope. 
+                // Therefore, they have their own variable oldSrc
+                const oldSrc = img.src;
+
+                img.addEventListener('mouseenter', (e) => e.target.src = getRandomImgURL(200));
+                img.addEventListener('mouseleave', (e) => e.target.src = oldSrc)
+            }, 'Add random image'));
+        });
+    },
     windowFunc(p)
     {
-        const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-        wait(1 * 100).then(() =>
+        this.wait(1 * 100).then(() =>
             {
                 p.innerHTML=`
                 Window width = ${window.innerWidth}px <br>
@@ -55,7 +100,6 @@ const testFunctions =
                 autoSave.addEventListener('change', () => {
                     window.sessionStorage.setItem('autosave', autoSave.value);
                 });
-
             }
         )   
     }
@@ -67,6 +111,10 @@ function parseModuleHTML(input)
     for (const key in input)
     {
         const value = input[key];
+        if((value.callback != undefined && value.callback != '') && testFunctions[value.callback] === undefined)
+        {
+            alert(`Couldn't find function ${value.callback} in module ${input.name} \n Read value: \n${JSON.stringify(value)}`);
+        }
         switch(key)
         {
             case 'name':
@@ -85,8 +133,8 @@ function parseModuleHTML(input)
             switch(typeof pValue)
             {
                 case "object":
-                    p = creator.createText('p', value.text);
-                    testFunctions[value.callback](p);
+                    p = creator.createText('p', value.text, value.id);
+                    if(value.callback != '') testFunctions[value.callback](p);
                 break;
                 case "string":
                     p = creator.createText('p', value);

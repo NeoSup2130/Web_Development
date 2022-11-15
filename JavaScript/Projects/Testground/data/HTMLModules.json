@@ -10,14 +10,20 @@
 		"name":"Window API",
 		"h2":"Window API",
 		"hr":"",
-		"p":{"callback":"windowFunc", "text":"loading..."}
+		"p":{"id":"","callback":"windowFunc", "text":"loading..."}
+	},
+	{
+		"name":"Image API",
+		"h2":"Image API + random rollover creation",
+		"hr":"",
+		"p":{"id":"","callback":"imageModule", "text":"loading..."}
 	},
 	{
 		"name":"History API",
 		"h2":"History API",
 		"hr":"",
-		"p":"Press the button to History some data!",
-		"button":{"callback":"doAlert","text":"History"}
+		"p":{"id":"hisField","callback":"", "text":"Press the button to get History data!"},
+		"button":{"callback":"historyModule","text":"History"}
 	}
 ]
 	
