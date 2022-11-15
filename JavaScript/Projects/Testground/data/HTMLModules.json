@@ -24,6 +24,18 @@
 		"hr":"",
 		"p":{"id":"hisField","callback":"", "text":"Press the button to get History data!"},
 		"button":{"callback":"historyModule","text":"History"}
+	},
+	{
+		"name":"Navigator API",
+		"h2":"Navigator API",
+		"hr":"",
+		"p":{"id":"","callback":"navigatorFunc", "text":"loading..."}
+	},
+	{
+		"name":"Location API",
+		"h2":"Location API",
+		"hr":"",
+		"p":{"id":"","callback":"locationFunc", "text":"loading..."}
 	}
 ]
 	

@@ -45,6 +45,45 @@ const testFunctions =
         
         eParent.removeChild(event.target);
     },
+    navigatorFunc(p)
+    {
+        let loc, bat;
+        navigator.geolocation.getCurrentPosition((pos) => 
+        {
+            const coords = pos.coords;
+            loc = `
+            Accuracy = ${coords.accuracy}
+            Altitude = ${coords.altitude}
+            Longitude = ${coords.longitude}
+            Latitude = ${coords.latitude}
+            More or less ${coords.accuracy} meters.
+            `;
+        });
+        navigator.getBattery().then((battery) =>
+        {
+            bat = `
+            navigator.getBattery() information:
+
+            Is battery charging: ${battery.charging}
+            Battery level: ${battery.level * 100}%
+            `;
+        })
+        this.wait(500).then(() => 
+        {
+            p.innerText = `Navigator: ${loc}
+            ${bat}
+            Plugins (deprecated):
+            ${Array.from(navigator.plugins).map((plugin) => `\n${plugin.name}`)}`;
+        })
+    },
+    locationFunc(p)
+    {
+        p.innerText = `Location origin: ${JSON.stringify(location.ancestorOrigins)}
+        Location pathname: ${location.pathname}
+        Protocol: ${location.protocol}
+        Host: ${location.host}
+        `;
+    },
     imageModule(p)
     {
         let idCounter = Math.floor(Math.random() * new Date().getTime());
@@ -134,7 +173,8 @@ function parseModuleHTML(input)
             {
                 case "object":
                     p = creator.createText('p', value.text, value.id);
-                    if(value.callback != '') testFunctions[value.callback](p);
+                    const func = testFunctions[value.callback];
+                    if(value.callback != '' && func != undefined) func.call(testFunctions, p);
                 break;
                 case "string":
                     p = creator.createText('p', value);
