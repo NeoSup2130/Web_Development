@@ -2,7 +2,7 @@
 export function createElement(type, id='')
 {
     let el = document.createElement(type);
-    el.id = id;
+    if (id != '') el.id = id;
     return el;
 }
 
