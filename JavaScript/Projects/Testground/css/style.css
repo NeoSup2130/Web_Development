@@ -16,7 +16,7 @@ body {
 
 #bodyContainer {
     background-color: rgb(182, 182, 182);
-    height: fit-content;
+    height: max(100vh, fit-content);
     padding: var(--bodyPad) 0;
 }
 /* Avoids fake margin between nav and body */
