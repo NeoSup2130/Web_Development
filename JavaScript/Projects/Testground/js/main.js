@@ -189,6 +189,11 @@ function parseModuleHTML(input)
             const button = creator.createButton(testFunctions[value.callback], value.text);
             sect.appendChild(button);
             break;
+            case 'embedYT':
+                value.map((obj) => {
+                    sect.appendChild(creator.embedYT(obj.src, obj.startAt));
+                })
+            break;
         }
         if (sect === undefined)
         {

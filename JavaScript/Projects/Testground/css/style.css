@@ -87,3 +87,8 @@ nav li {
     margin: 0%;
     margin-right: 2%;
 }
+
+#Youtube p {
+    aspect-ratio: 16 / 9;
+    padding: 1rem;
+}
