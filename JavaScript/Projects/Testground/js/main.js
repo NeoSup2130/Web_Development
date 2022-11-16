@@ -83,6 +83,7 @@ const testFunctions =
         Protocol: ${location.protocol}
         Host: ${location.host}
         `;
+        p.appendChild(creator.createButton(() => location.replace(`/`), "Go to root"));
     },
     imageModule(p)
     {
