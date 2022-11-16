@@ -117,6 +117,30 @@ const testFunctions =
             }, 'Add random image'));
         });
     },
+    formVideoYT(p)
+    {
+        const form = creator.createElement('form', 'videoForm');
+        let input = creator.createElement('input', 'inputURL'); input.type = "text";
+        let submitBtn = creator.createElement('input'); submitBtn.type = "submit";
+        let fdMsg = creator.createText('p', "", 'inputMsg');
+
+        form.appendChild(input);
+        form.appendChild(submitBtn);
+        form.appendChild(fdMsg);
+        p.parentElement.appendChild(form);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if(input.value == '' || input.value == undefined || input.value.match(/\s/g))
+            {
+                fdMsg.innerText = 'invalid link!';
+            } else {
+                fdMsg.innerText = 'submitted link!';
+            }
+
+        });
+    },
     windowFunc(p)
     {
         this.wait(1 * 100).then(() =>
@@ -169,22 +193,21 @@ function parseModuleHTML(input)
             break;
             case 'p':
             const pValue = value;
-            let p;
+            let p = creator.createText('p', value.text, value.id);
+            sect.appendChild(p);
             switch(typeof pValue)
             {
                 case "object":
-                    p = creator.createText('p', value.text, value.id);
                     const func = testFunctions[value.callback];
                     if(value.callback != '' && func != undefined) func.call(testFunctions, p);
                 break;
                 case "string":
-                    p = creator.createText('p', value);
+                    p.innerText = value;
                 break;
                 default:
                     alert('p contains invalid data!');
                     break;
             }
-            sect.appendChild(p);
             break;
             case 'button':
             const button = creator.createButton(testFunctions[value.callback], value.text);

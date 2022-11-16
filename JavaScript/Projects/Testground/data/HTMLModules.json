@@ -7,6 +7,12 @@
 		"button":{"callback":"doAlert","text":"Fetch"}
 	},
 	{
+		"name":"Object API",
+		"h2":"Object API",
+		"hr":"",
+		"p":{"id":"", "callback":"formVideoYT", "text":"Add a new youtube video to its module!"}
+	},
+	{
 		"name":"Window API",
 		"h2":"Window API",
 		"hr":"",
