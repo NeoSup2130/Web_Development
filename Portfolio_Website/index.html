@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <script src="js/typeWrite.js"></script>
+    <script>
+        window.onload = function() {
+            typeWriteEffect("Projecten","Paar projecten waar ik aan heb gewerkt.", 100);
+            typeWriteEffect("Interesses?","Wat zijn mijn interesses?", 50);
+            typeWriteEffect("Wie?","Wie ben ik?", 50); };
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navMenu.css">
+    <link rel="stylesheet" href="css/home.css">
+    <title>Slava Takrovskij Portfolio</title>
+</head>
+<body>
+    <main class="grid">
+        <nav class="grid-Menu">
+            <a href="#"><img src="images/logo.png" alt="logo"></a>
+            <div class="dropdown">
+                <input type="checkbox" id="games">
+                <ul>
+                    <li><a href="#" class="nav-item selected">Home</a></li>
+                    <li><a href="paginas/WebDev.html" class="nav-item">Web dev</a></li>
+                    <li class="dropdown-menu">
+                        <label for="games" class="nav-item">Game Dev</label>
+                        <ul>
+                            <li><a href="paginas/Game-Team.html" class="nav-item">Team projecten</a></li>
+                            <li><a href="paginas/Game-Solo.html" class="nav-item">Solo projecten</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="paginas/Contact.html" class="nav-item">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="grid-Wide spanHover">
+            <span>Drums of Harmony - 2de jaars project - Splash art door Rembrandt van Leeuwen</span>
+            <picture >
+                <source media="(max-width: 768px)" srcset="images/Y2_Setsuko_SplashArt_768.png">
+                <source media="(max-width: 1024px)" srcset="images/Y2_Setsuko_SplashArt_1024.png">
+                <source media="(max-width: 2560px)" srcset="images/Y2_Setsuko_SplashArt_2560.png">
+                <img src="images/Y2_Setsuko_SplashArt.png" class="wide-Photo" alt="Splash art" >
+            </picture>
+        </div>
+        <div class="highlight grid-Content">
+            <section class="flex wrap" id="content">
+                <div class="flex-item">
+                    <h2 id="Wie?">&nbsp;<!-- Wie ben ik? --></h2>
+                    <p>Een harde werker die ontzettend leergierig is. Mijn ambitie is om werk te doen waar ik problemen kan oplossen.
+                        Deze kunnen zowel programmatisch of gebruikerservaring zijn. Op dit moment ben ik een derdejaars student aan BUAS (Breda University of Applied Sciences)
+                        voorheen NTHV. Daar volg ik de studie <em>Creative Media and Games Technologies</em>
+                    </p>
+                </div>
+                <div class="flex-item">
+                    
+                    <h2 id="Interesses?">&nbsp;<!-- Wat zijn mijn interesses? --></h2>
+                    <p>Ik houd ervan om problemen op te lossen. Bij het programmeren van spellen komt deze eigenschap van mij naar boven.
+                        Echter, houd het hierbij niet op. Sinds kort ben ik begonnen met een cursus voor front-end web development bij LOI. 
+                        Er zijn veel mogelijkheden om te groeien rondom het gebied van programmeertalen. Daarnaast zou ik graag mezelf willen verdiepen
+                        in de communicatie tussen hard- en software.
+                    </p>
+                </div>
+                <hr>
+            </section>
+            <section id="pictures-videos">
+                <h2 id="Projecten">&nbsp;<!-- Paar projecten waar ik aan heb gewerkt. --></h2>
+                <div class="flex wrap">
+                    <img src="images/Y2_Setsuko.png" alt="one" class="template-200px flex-item">
+                    <div class="template-200px flex-item vidContainer">
+                        <span>AI path tool - Year 2</span>
+                        <video controls loop>
+                            <source src="videos/EditorChimneyLD.mp4">
+                        </video>
+                    </div>
+                    <img src="images/Y1_Asteroids.gif" alt="three" class="template-200px flex-item">
+                    <div class="template-200px flex-item">
+                        <iframe src="https://www.youtube.com/embed/GWj-VUpAMGs" title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                    </div>
+                    <div class="template-200px flex-item vidContainer">
+                        <span>Ray tracing project - Year 1</span>
+                        <video controls loop>
+                            <source src="videos/RayTracing_SlavaTakrovskij.mp4">
+                        </video>
+                    </div>
+                </div>
+                <hr>
+
+            </section> 
+            <section id="cards" class="flex wrap">
+                <div class="card">
+                    <img src="images/Y2_Gudenuff.png" alt="five" class="template-300px flex-item">
+                    <div class="card-info">
+                        <h3>Team projecten</h3>
+                        <p>
+                            Een verzameling van games waar ik aan heb gewerkt binnen een teamverband. Hierbij werd Unreal 4 gebruikt of een custom C++ engine die eerder door mijn team is gemaakt.
+                            <a href="paginas/Game-Team.html">Kijk hier verder...</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/Y1_Mario.png" alt="five" class="template-300px flex-item">
+                    <div class="card-info">
+                        <h3>Solo projecten</h3>
+                        <p>
+                            Tijdens mijn studie heb ik enkele games zelf gemaakt. Daarnaast heb ik buitenom mijn studie ook prototypes of kleine games ontworpen.
+                            <a href="paginas/Game-Solo.html">Kijk hier verder...</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/WebDev.png" alt="five" class="template-300px flex-item">
+                    <div class="card-info">
+                        <h3>Web projecten</h3>
+                        <p>Naast mijn studie volg ik een cursus front-end web development. Hierbij heb ik tot nu toe veel aan mijn HTML5 en CSS skills gewerkt.
+                            <a href="paginas/WebDev.html">Kijk hier verder...</a>
+                        </p>
+                    </div>    
+                </div>
+            </section>
+        </div>
+        <footer class="grid-Footer">
+            <p>@Copyright Slava Takrovskij</p>
+        </footer>
+    </main>
+</body>
+</html>

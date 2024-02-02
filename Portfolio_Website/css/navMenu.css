@@ -1,0 +1,158 @@
+/* Navigation menu style rules */
+nav {
+    --firstShadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    --secondShadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    max-height: min-content;
+}
+
+nav ul {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+    height: max-content;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+nav > .dropdown-menu > ul {
+    box-shadow: var(--firstShadow);
+}
+/* Logo nav begin */
+nav > a {
+    height: 4rem;
+    margin: 1ch 0;
+    position: relative;
+}
+
+nav > a::after {
+    position: absolute;
+    left: -14%;
+    top: 105%;
+    width: 14ch;
+    content: "Slava's Portfolio";
+    color: black;
+    text-align: center;
+}
+
+nav > a:hover::after {
+    color: rgb(0, 153, 255);
+}
+nav img:hover {
+    border-radius: 25%;
+    background-color: rgb(0, 153, 255);
+}
+
+a > img {
+    height: 100%;
+}
+/* Logo nav eind */
+nav li {
+    width: calc(100vw - var(--gridPadding) * 0.5);
+}
+
+nav input {
+    display: none;
+}
+
+nav .nav-item {
+    display: block;
+
+    padding: 2ch;
+    
+    text-align: center;
+    text-decoration: none;
+
+    color: black;
+    background-color: var(--sndColor);
+
+    transition: all 0.2s linear;
+}
+
+nav .nav-item:hover {
+    background-color: var(--navHoverColor);
+    color: white;
+}
+
+/* Begin dropdown */
+nav li > label::after 
+{ content: ' »'; }
+nav .dropdown > input:checked ~ ul .dropdown-menu > label::after 
+{ content: ' «'; }
+
+nav .dropdown-menu {
+    position: relative;
+    height: 54px;
+    transition: height 0.2s ease-out;
+}
+
+nav .dropdown-menu ul {
+    visibility: hidden;
+
+    transform:  translateY(-50%) scaleY(0);
+    transition: transform .2s ease-out;
+
+    background-color: var(--sndColor);
+}
+
+nav .selected {
+    background-color: var(--navHoverColor);
+}
+
+nav .dropdown input:checked ~ ul .dropdown-menu {
+    height: 150px;
+}
+
+nav .dropdown input:checked ~ ul .dropdown-menu ul {
+    visibility: visible;
+    transform:  translateY(0) scaleY(1);
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+/* Eind dropdown */
+
+@media screen and (min-width: 768px){
+    nav {
+    justify-content: space-between;
+    }
+
+    nav li {
+        width: auto;
+    }
+
+    nav img {
+    margin: 0;
+    }
+/* Begin mediaquery dropdown */
+nav .dropdown-menu {
+    position: relative;
+    transition: none;
+}
+
+nav .dropdown-menu ul {
+    width: 100%;
+    position: absolute;
+    box-shadow: var(--secondShadow);
+}
+
+nav .dropdown > input:checked ~ ul .dropdown-menu ul {
+    display: list-item;
+}
+
+nav .dropdown > input:checked ~ ul .dropdown-menu {
+    height: 54px;
+}
+/* eind mediaquery dropdown */
+}

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playpen+Sans:wght@700&family=Poppins:wght@200&family=Roboto+Condensed&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    --backDropColor: rgb(212, 212, 212);
+    --frstColor: white;
+    --sndColor: rgb(238, 238, 238);
+    --navHoverColor: rgb(158, 158, 158);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playpen Sans', cursive;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--backDropColor);
+}
+
+main {
+    background-color: var(--backDropColor);
+    border: 1px solid black;
+}
+
+.grid {
+    --gridPadding: 3rem;
+}
+
+.grid {
+    margin: 0;
+    padding: 0;
+    display: grid;
+}
+
+.grid-Menu {
+    z-index: 1;
+}
+
+.grid-Content {
+    font-size: clamp(0.65rem, calc(0.65rem + 1.5vw), 1.25rem);
+}
+
+.flex {
+    display: flex;
+}
+.wrap {
+    flex-wrap: wrap;
+}
+.flex-item {
+    display: block;
+}
+
+.f-justify-between {
+    justify-content: space-between;
+}
+
+#map {
+    height: 100%;
+}
+table {
+    border-spacing: 0;
+    margin-bottom: 1em;
+}
+
+table th, table td {
+    border: 1px solid black;
+    padding: 1em;
+}
+
+table th {
+    background-color: aliceblue;
+}
+
+table td input {
+    width: 100%;
+}
